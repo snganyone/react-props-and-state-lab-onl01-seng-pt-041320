@@ -15,6 +15,17 @@ class App extends React.Component {
     }
   }
 
+  fetchPets = () => {
+    if(this.state.filters.type === 'all'){
+      fetch(`/api/pets`)
+    } else if (this.state.filters.type === 'cat'){
+      fetch(`/api/pets?type=cat`)
+    } else if (this.state.filters.type === 'dog'){
+      fetch(`/api/pets?type=dog`)
+    } else if (this.state.filters.type === 'micropig'){
+      fetch(`/api/pets?type=micropig`)
+    }
+  }
   render() {
     return (
       <div className="ui container">
@@ -24,7 +35,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters onChangeType={this.state.filters.type} onFindPetsClick/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
