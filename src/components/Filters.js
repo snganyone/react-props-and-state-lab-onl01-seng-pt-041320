@@ -10,6 +10,10 @@ class Filters extends React.Component {
   AnimalChange = () => {
 
   }
+
+  handleClick = () => {
+    const bu = document.getElementsByClassName("ui secondary button");
+  }
   
   render() {
     return (
@@ -25,7 +29,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button">Find pets</button>
+          <button className="ui secondary button" onClick={this.props.onFindPetsClick}>Find pets</button>
         </div>
         {this.props.onChangeType}
       </div>
