@@ -1,16 +1,25 @@
 import React from 'react'
 
 class Pet extends React.Component {
+
+  Gender = () => {
+    if(this.props.gender === 'male'){
+      return '♂'
+    } else {
+      return '♀'
+    }
+  }
   render() {
     return (
       <div className="card">
         <div className="content">
           <a className="header">
             {/*'♀' OR '♂' */}
-            {this.props.pet.name}
+            {this.Genderssss}
+            Pet Name:{this.props.pet.name}
           </a>
           <div className="meta">
-            <span className="date">{this.props.pet.type}</span>
+            <span className="date">Pet Type:{this.props.pet.type}</span>
           </div>
           <div className="description">
             <p>Age: {this.props.pet.age}</p>
