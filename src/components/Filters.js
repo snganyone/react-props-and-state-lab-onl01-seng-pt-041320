@@ -6,14 +6,6 @@ class Filters extends React.Component {
     this.state = {
     }
   }
-
-  AnimalChange = () => {
-
-  }
-
-  handleClick = () => {
-    const bu = document.getElementsByClassName("ui secondary button");
-  }
   
   render() {
     return (

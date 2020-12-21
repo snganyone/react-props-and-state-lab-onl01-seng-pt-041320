@@ -9,13 +9,13 @@ class Pet extends React.Component {
       return '♀'
     }
   }
+  
   render() {
     return (
       <div className="card">
         <div className="content">
           <a className="header">
             {/*'♀' OR '♂' */}
-            {this.Genderssss}
             Pet Name:{this.props.pet.name}
           </a>
           <div className="meta">
@@ -28,7 +28,7 @@ class Pet extends React.Component {
         </div>
         <div className="extra content">
           <button className="ui disabled button">Already adopted</button>
-          <button className="ui primary button">Adopt pet</button>
+          <button className="ui primary button" onClick={this.props.onAdoptPet}>Adopt pet</button>
         </div>
       </div>
     )
