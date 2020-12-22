@@ -2,7 +2,7 @@ import React from 'react'
 
 class Pet extends React.Component {
 
-  Gender = () => {
+  gender = () => {
     if(this.props.gender === 'male'){
       return '♂'
     } else {
@@ -10,30 +10,54 @@ class Pet extends React.Component {
     }
   }
 
-  
+  handleClick = (event) => {
+    this.props.onAdoptPet(this.props.pet.id);
+  }
   
   render() {
-    return (
-      <div className="card">
-        <div className="content">
-          <a className="header">
-            {/*'♀' OR '♂' */}
-            Pet Name:{this.props.pet.name}
-          </a>
-          <div className="meta">
-            <span className="date">Pet Type:{this.props.pet.type}</span>
+    if(this.props.pet.isAdopted){
+          return (
+          <div className="card">
+            <div className="content">
+              <a className="header">
+                {/*'♀' OR '♂' */}
+                Pet Name:{this.props.pet.name}
+              </a>
+              <div className="meta">
+                <span className="date">Pet Type:{this.props.pet.type}</span>
+              </div>
+              <div className="description">
+                <p>Age: {this.props.pet.age}</p>
+                <p>Weight: {this.props.pet.weight}</p>
+              </div>
+            </div>
+            <div className="extra content">
+              <button className="ui disabled button">Already adopted</button>
+            </div>
           </div>
-          <div className="description">
-            <p>Age: {this.props.pet.age}</p>
-            <p>Weight: {this.props.pet.weight}</p>
+        )
+    } else {
+      return (
+        <div className="card">
+          <div className="content">
+            <a className="header">
+              {/*'♀' OR '♂' */}
+              Pet Name:{this.props.pet.name}
+            </a>
+            <div className="meta">
+              <span className="date">Pet Type:{this.props.pet.type}</span>
+            </div>
+            <div className="description">
+              <p>Age: {this.props.pet.age}</p>
+              <p>Weight: {this.props.pet.weight}</p>
+            </div>
+          </div>
+          <div className="extra content">
+            <button className="ui primary button" onClick={this.handleClick}>Adopt pet</button>
           </div>
         </div>
-        <div className="extra content">
-          <button className="ui disabled button">Already adopted</button>
-          <button className="ui primary button" onClick={this.props.onAdoptPet}>Adopt pet</button>
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
