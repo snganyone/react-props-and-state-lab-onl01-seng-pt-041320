@@ -15,6 +15,14 @@ class App extends React.Component {
     }
   }
 
+  PetStatus = (petid) => {
+    if(this.state.pets.id === petid){
+      this.setState({
+        pets: petid
+      }) 
+    } 
+  }
+
   changePetState = (data) => {
     this.setState({
       pets: data
