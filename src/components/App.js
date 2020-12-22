@@ -18,12 +18,11 @@ class App extends React.Component {
   petStatus = (petid) => {
     const pet_arr = this.state.pets.filter(pet => pet.id !== petid);
     const foundpet = this.state.pets.find(pet => pet.id === petid);
-    const adoptedpet = {...foundpet, isAdopted: true}
+    const adoptedpet = {...foundpet, isAdopted: true};
     this.setState({
       ...this.state,
-      pets: [...pet_arr, adoptedpet] 
+      pets: [adoptedpet, ...pet_arr ] 
     });
-    console.log(adoptedpet);
   }
 
   changePetState = (data) => {
