@@ -9,6 +9,8 @@ class Pet extends React.Component {
       return '♀'
     }
   }
+
+  
   
   render() {
     return (
